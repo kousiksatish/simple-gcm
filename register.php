@@ -10,7 +10,7 @@
 	$db = new DB;
 
 	$db->insert('register', array(
-			"fes_id" => $fest_id,
+			"fes_id" => $fes_id,
 			"gcm_id" => $gcm_id
 		));
 
