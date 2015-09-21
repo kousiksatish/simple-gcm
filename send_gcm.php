@@ -15,7 +15,7 @@
         );
 		// Update your Google Cloud Messaging API Key
 		if (!defined('GOOGLE_API_KEY')) {
-			define("GOOGLE_API_KEY", "**"); 		
+			define("GOOGLE_API_KEY", "**");
 		}
         $headers = array(
             'Authorization: key=' . GOOGLE_API_KEY,
@@ -58,10 +58,10 @@
 
   	for($i=0;$i<sizeof($reg_id_chunks);$i++)
   	{
-  		sendPushNotificationToGCM($reg_id_chunks[$i], $msg);
+  		echo sendPushNotificationToGCM($reg_id_chunks[$i], $msg_arr);
   	}
 
-
+	header("location:index.php");
 
 
 
