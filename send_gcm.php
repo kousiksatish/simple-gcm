@@ -38,7 +38,7 @@
     }
 
    	$chunk_size = 300;
-    $result = $db->get_all("register");
+    $result = $db->get_all("register_gcm");
 
     $reg_ids = array();
 

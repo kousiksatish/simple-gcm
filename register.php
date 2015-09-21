@@ -9,7 +9,7 @@
 
 	$db = new DB;
 
-	$db->insert('register', array(
+	$db->insert('register_gcm', array(
 			"fes_id" => $fes_id,
 			"gcm_id" => $gcm_id
 		));
