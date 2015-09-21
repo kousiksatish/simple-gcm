@@ -14,9 +14,9 @@ class DB {
 
     function __construct() {
     	$host = "localhost";
-    	$user = "";
-    	$password = "";
-    	$database = "";
+    	$user = "root";
+    	$password = "kousiksatish";
+    	$database = "fes-app-gcm";
 
     	$con = mysql_connect($host, $user, $password)or die("not connected");
 		$stmt = mysql_select_db($database)or die("not selected");
@@ -30,10 +30,10 @@ class DB {
     	return $row['MAX(id)'];
     }
 
-    public function get($table, $condition) {
+    public function get_all($table) {
     	$this->table = $table;
         //echo "SELECT * FROM $this->table WHERE $condition";
-    	$query = mysql_query("SELECT * FROM $this->table WHERE $condition") or die("Error querying");
+    	$query = mysql_query("SELECT * FROM $this->table") or die("Error querying");
 
     	return $query;
     }

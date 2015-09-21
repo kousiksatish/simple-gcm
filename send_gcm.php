@@ -38,7 +38,7 @@
     }
 
    	$chunk_size = 300;
-    $result = $db->get("register");
+    $result = $db->get_all("register");
 
     $reg_ids = array();
 
@@ -49,7 +49,7 @@
 
   	$size = sizeof($reg_ids);
 	$msg_arr = array("data" => $msg);
-  	$reg_id_chunks = array_chunk($reg_ids, $chunk_size)
+  	$reg_id_chunks = array_chunk($reg_ids, $chunk_size);
 
   	$db = new DB;
   	$db->insert("messages",array(
