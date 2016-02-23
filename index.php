@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<h1>GCM send to festember app</h1>
+<h1>GCM send to Pragyan app</h1>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 
 <style>
@@ -19,6 +19,12 @@
 
 <div class="row main-form">
 <form class="form-horizontal" method="post" action="send_gcm.php">
+  <div class="form-group">
+      <label for="title" class="col-sm-2 control-label">Title</label>
+      <div class="col-sm-3">
+        <input type="text" name="title">
+      </div>
+  </div>
 
 	<div class="form-group">
       <label for="text" class="col-sm-2 control-label">Message</label>
@@ -35,6 +41,17 @@
 </form>
 
 </div>
-</body>
 
+<?php
+session_start();
+echo $_SESSION['logged_in'];
+
+if ($_SESSION['logged_in'] != "1") {
+  session_destroy();
+  header("location:login.php");
+}
+
+?>
+
+</body>
 </html>

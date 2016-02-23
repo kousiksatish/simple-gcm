@@ -1,5 +1,11 @@
 <?php
 
+require 'vendor/autoload.php';
+
+
+$dotenv = new Dotenv\Dotenv(__DIR__, '.env');
+$dotenv->load();
+
 class DB {
 
 	private $con;
@@ -13,13 +19,13 @@ class DB {
     private $table3;
 
     function __construct() {
-    	$host = "localhost";
-    	$user = "root";
-    	$password = "kousiksatish";
-    	$database = "fes-app-gcm";
+        $user = $_ENV["DB_USER"];
+        $password = $_ENV["DB_PASS"];
+    	$host = $_ENV["DB_HOST"];
+    	$database = $_ENV["DB_NAME"];
 
     	$con = mysql_connect($host, $user, $password)or die("not connected");
-		$stmt = mysql_select_db($database)or die("not selected");
+		$stmt = mysql_select_db("$database")or die("not selected");
     }
 
     public function latest_id($table) {
@@ -56,9 +62,8 @@ class DB {
 		$v=implode(',',$values);
 		
 		$query="INSERT INTO $this->table ($f) values ('" . implode( "','", $values ) . "')";
-		mysql_query($query) or die("not inserted");
+		mysql_query($query);
 		
 	}
 }
-
 ?>

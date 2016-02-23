@@ -1,2 +1,4 @@
 db-ops.php
 test.php
+vendor/
+.env
