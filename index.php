@@ -43,8 +43,14 @@
 </div>
 
 <?php
+require 'vendor/autoload.php';
+
+
+$dotenv = new Dotenv\Dotenv(__DIR__, '.env');
+$dotenv->load();
+
 session_start();
-if ($_SESSION['logged_in'] != "1") {
+if ($_SESSION['logged_in'] != $_ENV["SESSION_VARIABLE"]) {
   session_destroy();
   header("location:login.php");
 }

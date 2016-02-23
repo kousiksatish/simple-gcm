@@ -47,7 +47,7 @@ if (isset($_POST["username"]) && isset($_POST["pass"])) {
 	$password = $_POST["pass"];
 	if ($username == $_ENV['USERNAME'] && $password == $_ENV['PASSWORD']) {
 		session_start();
-		$_SESSION['logged_in'] = "1";
+		$_SESSION['logged_in'] = $_ENV["SESSION_VARIABLE"];
 		header("location:index.php");
 	}
 	
