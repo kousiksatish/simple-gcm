@@ -22,7 +22,7 @@
   <div class="form-group">
       <label for="title" class="col-sm-2 control-label">Title</label>
       <div class="col-sm-3">
-        <input type="text" name="title">
+        <input type="text" name="title" required>
       </div>
   </div>
 
@@ -44,8 +44,6 @@
 
 <?php
 session_start();
-echo $_SESSION['logged_in'];
-
 if ($_SESSION['logged_in'] != "1") {
   session_destroy();
   header("location:login.php");
