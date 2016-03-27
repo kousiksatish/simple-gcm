@@ -1,8 +1,14 @@
+<?php
+require 'vendor/autoload.php';
 
+
+$dotenv = new Dotenv\Dotenv(__DIR__, '.env');
+$dotenv->load();
+?>
 <html>
 
 <head>
-<h1>GCM send to Pragyan app</h1>
+<h1>GCM send to <?php echo $_ENV['FEST_NAME']; ?> app</h1>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 
 <style>
@@ -43,11 +49,7 @@
 </div>
 
 <?php
-require 'vendor/autoload.php';
 
-
-$dotenv = new Dotenv\Dotenv(__DIR__, '.env');
-$dotenv->load();
 
 session_start();
 if ($_SESSION['logged_in'] != $_ENV["SESSION_VARIABLE"]) {

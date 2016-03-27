@@ -4,9 +4,16 @@
 	<title>Login To Send Push Notifications</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
+<?php
+	require 'vendor/autoload.php';
+	$dotenv = new Dotenv\Dotenv(__DIR__, '.env');
+	$dotenv->load();
+
+?>
+
 <body>
 <div class="content" align="center">
-        <h2>Login To Send Push Notifications to All of Pragyan!</h2>
+        <h2>Login To Send Push Notifications to All of <?php echo $_ENV['FEST_NAME']; ?>!</h2>
         <br>
 		<br>
 		<br>
@@ -36,11 +43,6 @@
 
 
 <?php
-require 'vendor/autoload.php';
-
-
-$dotenv = new Dotenv\Dotenv(__DIR__, '.env');
-$dotenv->load();
 
 if (isset($_POST["username"]) && isset($_POST["pass"])) {
 	$username = $_POST["username"];

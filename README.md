@@ -1,6 +1,6 @@
 ###Stupid Simple GCM Server
 
-A simple GCM server used for Pragyan'16
+A simple GCM server that can be used for all fests
 
 ####Setup:
 
@@ -15,8 +15,3 @@ A simple GCM server used for Pragyan'16
 * `/send_gcm.php`
   * Used to send the message to **all** GCM ids
   * Accepts a POST request with the `message` sent as form-data
-
-
-
-TODO:
-- [ ] Convert into a general purpose simple GCM server
