@@ -7,6 +7,13 @@
 	$dotenv = new Dotenv\Dotenv(__DIR__, '.env');
 	$dotenv->load();
 
+	session_start();
+	echo $_SESSION['logged_in'];
+	if ($_SESSION['logged_in'] != $_ENV["SESSION_VARIABLE"]) {
+	  session_destroy();
+	  header("location:login.php");
+	}
+
 
 	function sendPushNotificationToGCM($registration_ids, $message) {
 		
