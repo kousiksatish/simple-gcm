@@ -31,10 +31,37 @@ if ($_SESSION['logged_in'] != $_ENV["SESSION_VARIABLE"]) {
 
 <div class="row main-form">
 <form class="form-horizontal" method="post" action="send_gcm.php">
+
+
+
+  <div class="form-group">
+      <label for="title" class="col-sm-2 control-label">Cluster</label>
+      <div class="col-sm-3">
+        <select name="cluster" class="form-control">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+  </div>
+
+  <div class="form-group">
+      <label for="title" class="col-sm-2 control-label">Type</label>
+      <div class="col-sm-3">
+        <select name="type" class="form-control">
+          <option value="general">General</option>
+          <option value="feedback">Feedback</option>
+        </select>
+      </div>
+  </div>
+
+
   <div class="form-group">
       <label for="title" class="col-sm-2 control-label">Title</label>
       <div class="col-sm-3">
-        <input type="text" name="title" required>
+        <input class="form-control" type="text" name="title" required>
       </div>
   </div>
 
