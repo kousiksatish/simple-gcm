@@ -13,7 +13,7 @@
 		$GCM_SERVER_API_KEY = $_ENV["GCM_SERVER_API_KEY"];
 		$url = 'https://android.googleapis.com/gcm/send';
 		$fields = array(
-			'to' => join(', ',$registration_ids),
+			'registration_ids' => $registration_ids,
 			'data' => $message,
 		);
 		echo json_encode($fields);
@@ -37,9 +37,9 @@
 		if ($result === FALSE) {
 			die('Curl failed: ' . curl_error($ch));
 		}
-		echo $result;
+		//echo $result;
 		curl_close($ch);
-		return $header;
+		return $result;
 	}
 	$db = new DB;
   	if (isset($_POST['message']) && isset($_POST['title']) && isset($_POST['cluster'])) {
