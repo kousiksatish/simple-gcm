@@ -38,11 +38,20 @@ if ($_SESSION['logged_in'] != $_ENV["SESSION_VARIABLE"]) {
       <label for="title" class="col-sm-2 control-label">Cluster</label>
       <div class="col-sm-3">
         <select name="cluster" class="form-control">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
+          <option value="tamil_lits">tamil</option>
+          <option value="hindi_lits">hindi</option>
+          <option value="english_lits">english</option>
+        </select>
+      </div>
+  </div>
+
+  <div class="form-group">
+      <label for="title" class="col-sm-2 control-label">Event</label>
+      <div class="col-sm-3">
+        <select name="event" class="form-control">
+          <option value="Koothambalam">Koothambalam</option>
+          <option value="Rochak_Mantrana">Rochak_Mantrana</option>
+          <option value="Crossword">Crossword</option>
         </select>
       </div>
   </div>

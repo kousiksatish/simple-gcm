@@ -42,11 +42,12 @@
 		return $result;
 	}
 	$db = new DB;
-  	if (isset($_POST['message']) && isset($_POST['title']) && isset($_POST['cluster'])) {
+  	if (isset($_POST['message']) && isset($_POST['title']) && isset($_POST['cluster']) && isset($_POST['event'])) {
 		$msg = $_POST['message'];
 		$title = $_POST['title'];
 		$cluster = $_POST['cluster'];
 		$type = $_POST['type'];
+		$event = $_POST['event'];
 	
 		$chunk_size = 300;
 		$result = $db->get_all($_ENV["GCM_TABLE"]);
@@ -56,7 +57,7 @@
 			array_push($reg_ids, $row['gcm_id']);
 		}
 		$size = sizeof($reg_ids);
-		$msg_arr = array("text" => $msg, "title" => $title, "cluster" => $cluster, "type"=>$type);
+		$msg_arr = array("text" => $msg, "title" => $title, "cluster" => $cluster, "type"=>$type, "event" => $event);
 		$reg_id_chunks = array_chunk($reg_ids, $chunk_size);
 		$db = new DB;
 		$db->insert($_ENV["MESSAGE_TABLE"],array(
