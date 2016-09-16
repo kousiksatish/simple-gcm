@@ -47,7 +47,7 @@
 		$cluster = $_POST['cluster'];
 		$type = $_POST['type'];
 		$event = $_POST['event_name'];
-		$gcmpin = $_POST['internalgcmpin']
+		$gcmpin = $_POST['internalgcmpin'];
 		if($gcmpin == $_ENV["INTERNAL_GCM_PIN"])
 		{
 			$chunk_size = 300;

@@ -38,6 +38,8 @@ if ($_SESSION['logged_in'] != $_ENV["SESSION_VARIABLE"]) {
       <label for="title" class="col-sm-2 control-label">Cluster</label>
       <div class="col-sm-3">
         <select name="cluster" class="form-control">
+	 <option value="general">general</option>
+
           <option value="tamil_lits">tamil</option>
           <option value="hindi_lits">hindi</option>
           <option value="english_lits">english</option>
