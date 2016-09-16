@@ -11,7 +11,7 @@
 	function sendPushNotificationToGCM($registration_ids, $message) {
 		
 		$GCM_SERVER_API_KEY = $_ENV["GCM_SERVER_API_KEY"];
-		$url = 'https://android.googleapis.com/gcm/send';
+		$url = 'https://fcm.googleapis.com/fcm/send';
 		$fields = array(
 			'registration_ids' => $registration_ids,
 			'data' => $message,
@@ -41,10 +41,12 @@
 	}
 
 	$db = new DB;
-  	if (isset($_POST['message']) && isset($_POST['title']) && isset($_POST['internalgcmpin'])) {
+  	if (isset($_POST['message']) && isset($_POST['title']) && isset($_POST['cluster']) && isset($_POST['event']) && isset($_POST['internalgcmpin'])) {
 		$msg = $_POST['message'];
 		$title = $_POST['title'];
-		$gcmpin = $_POST['internalgcmpin'];
+		$cluster = $_POST['cluster'];
+		$type = $_POST['type'];
+		$event = $_POST['event'];
 		if($gcmpin == $_ENV["INTERNAL_GCM_PIN"])
 		{
 			$chunk_size = 300;
@@ -58,7 +60,7 @@
 			}
 
 			$size = sizeof($reg_ids);
-			$msg_arr = array("data" => $msg, "title" => $title);
+			$msg_arr = array("text" => $msg, "title" => $title, "cluster" => $cluster, "type"=>$type, "event" => $event);
 			$reg_id_chunks = array_chunk($reg_ids, $chunk_size);
 
 			$db = new DB;

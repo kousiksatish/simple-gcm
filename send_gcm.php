@@ -11,7 +11,7 @@
 	function sendPushNotificationToGCM($registration_ids, $message) {
 	
 		$GCM_SERVER_API_KEY = $_ENV["GCM_SERVER_API_KEY"];
-		$url = 'https://android.googleapis.com/gcm/send';
+		$url = 'https://fcm.googleapis.com/fcm/send';
 		$fields = array(
 			'registration_ids' => $registration_ids,
 			'data' => $message,
