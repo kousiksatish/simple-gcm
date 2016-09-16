@@ -75,7 +75,7 @@
 				sendPushNotificationToGCM($reg_id_chunks[$i], $msg_arr);
 			}
 			$response = array (
-				"status" => 200, 
+				"status_code" => 200, 
 				"description" => "Success"
 				);
 			echo json_encode($response);
@@ -83,7 +83,7 @@
 		else
 		{
 			$response = array (
-				"status" => 102, 
+				"status_code" => 102, 
 				"description" => "Incorrect Pin"
 				);
 			echo json_encode($response);
@@ -92,7 +92,7 @@
 	else
 	{
 		$response = array(
-			"status" => 101,
+			"status_code" => 101,
 			"description" => "Incorrect parameters"
 			);
 		echo json_encode($response);
