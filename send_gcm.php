@@ -42,33 +42,53 @@
 		return $result;
 	}
 	$db = new DB;
-  	if (isset($_POST['message']) && isset($_POST['title']) && isset($_POST['cluster']) && isset($_POST['event'])) {
+  	if (isset($_POST['message']) && isset($_POST['title']) && isset($_POST['cluster']) && isset($_POST['event_name']) && isset($_POST['type'])) {
 		$msg = $_POST['message'];
 		$title = $_POST['title'];
 		$cluster = $_POST['cluster'];
 		$type = $_POST['type'];
-		$event = $_POST['event'];
-	
+		$event = $_POST['event_name'];
 		$chunk_size = 300;
 		$result = $db->get_all($_ENV["GCM_TABLE"]);
+
 		$reg_ids = array();
+
 		while($row = mysql_fetch_assoc($result))
 		{
 			array_push($reg_ids, $row['gcm_id']);
 		}
+
 		$size = sizeof($reg_ids);
 		$msg_arr = array("text" => $msg, "title" => $title, "cluster" => $cluster, "type"=>$type, "event" => $event);
 		$reg_id_chunks = array_chunk($reg_ids, $chunk_size);
+
 		$db = new DB;
 		$db->insert($_ENV["MESSAGE_TABLE"],array(
 				"message" => $msg,
 				"title" => $title,
+				"type" => $type,
+				"cluster" => $cluster,
+				"event" => $event,
 				"sent_to" => $size
 			));
+
 		for($i=0;$i<sizeof($reg_id_chunks);$i++)
 		{
 			sendPushNotificationToGCM($reg_id_chunks[$i], $msg_arr);
 		}
+		$response = array (
+			"status_code" => 200, 
+			"description" => "Success"
+			);
+		echo json_encode($response);
+	}
+	else
+	{
+		$response = array(
+			"status_code" => 101,
+			"description" => "Incorrect parameters"
+			);
+		echo json_encode($response);
 	}
 	header("location:index.php");
 ?>

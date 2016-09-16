@@ -48,7 +48,7 @@ if ($_SESSION['logged_in'] != $_ENV["SESSION_VARIABLE"]) {
   <div class="form-group">
       <label for="title" class="col-sm-2 control-label">Event</label>
       <div class="col-sm-3">
-        <select name="event" class="form-control">
+        <select name="event_name" class="form-control">
           <option value="Koothambalam">Koothambalam</option>
           <option value="Rochak_Mantrana">Rochak_Mantrana</option>
           <option value="Crossword">Crossword</option>

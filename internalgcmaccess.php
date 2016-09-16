@@ -46,7 +46,8 @@
 		$title = $_POST['title'];
 		$cluster = $_POST['cluster'];
 		$type = $_POST['type'];
-		$event = $_POST['event'];
+		$event = $_POST['event_name'];
+		$gcmpin = $_POST['internalgcmpin']
 		if($gcmpin == $_ENV["INTERNAL_GCM_PIN"])
 		{
 			$chunk_size = 300;
@@ -67,6 +68,9 @@
 			$db->insert($_ENV["MESSAGE_TABLE"],array(
 					"message" => $msg,
 					"title" => $title,
+					"type" => $type,
+					"cluster" => $cluster,
+					"event" => $event,
 					"sent_to" => $size
 				));
 

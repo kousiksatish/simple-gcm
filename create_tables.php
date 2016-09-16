@@ -34,7 +34,7 @@ if (!mysql_query($gcm_sql, $conn))
 	echo "\nError in creating $gcm_table " . mysql_error();
 
 // Create message_table
-$message_sql = "CREATE TABLE $message_table(id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, message VARCHAR(500), title VARCHAR(500), sent_to INT(11),logtime TIMESTAMP DEFAULT CURRENT_TIMESTAMP)";
+$message_sql = "CREATE TABLE $message_table(id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, message VARCHAR(500), title VARCHAR(500), type VARCHAR(40), cluster VARCHAR(200), event VARCHAR(200), sent_to INT(11),logtime TIMESTAMP DEFAULT CURRENT_TIMESTAMP)";
 
 if (!mysql_query($message_sql, $conn))
 	echo "\nError in creating $message_table " . mysql_error();
