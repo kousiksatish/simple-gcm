@@ -41,7 +41,7 @@
 	}
 
 	$db = new DB;
-  	if (isset($_POST['message']) && isset($_POST['title']) && isset($_POST['cluster']) && isset($_POST['event']) && isset($_POST['internalgcmpin'])) {
+  	if (isset($_POST['message']) && isset($_POST['title']) && isset($_POST['cluster']) && isset($_POST['event_name']) && isset($_POST['type']) && isset($_POST['internalgcmpin'])) {
 		$msg = $_POST['message'];
 		$title = $_POST['title'];
 		$cluster = $_POST['cluster'];
